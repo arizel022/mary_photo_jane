@@ -1,0 +1,77 @@
+body {
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Quicksand', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: $white;
+    background-color: $dark;
+    position: relative;
+
+    &.hidden {
+        overflow: hidden;
+    }
+}
+
+a {
+    outline: transparent;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    outline: transparent;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.title {
+    font-size: 48px;
+    margin-bottom: 50px;
+}
+
+.page {
+    padding-top: 135px;
+}
+
+.int {
+    transition: all 0.3s;
+    
+    &:hover {
+        box-shadow: 1px 1px 2px #000;
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 2px #000;
+    }
+
+    &:focus {
+        outline: 2px solid $sut;
+    }
+}
+
+.logo {
+    border-radius: 4px;
+    transition: opacity, 0.3s, outline 0.3s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:focus {
+        outline: 2px solid $sut;
+        outline-offset: 6px;
+    }
+}
+

@@ -1,0 +1,45 @@
+.info {
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__text {
+        max-width: 40%;
+
+        p:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        width: fit-content;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: opacity 0.3s, outline-offset 0.5s;
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &:focus {
+            outline: 1px solid $sut;
+            outline-offset: 6px;
+        }
+    }
+
+    &__icon {
+        margin-right: 25px;
+        fill: $sut;
+    }
+}
