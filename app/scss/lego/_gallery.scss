@@ -5,6 +5,11 @@
         grid-gap: 20px;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: 250px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+        }
     }
 
     &__item {
@@ -68,6 +73,8 @@
 
     &__list {
         display: block;
+
+        
     }
 
     &__item {
@@ -89,6 +96,10 @@
         position: relative;
         transition: outline 0.3s;
         z-index: 1;
+
+        @media (max-width: 576px) {
+            height: 130px;
+        }
 
         &:before {
             content: '';
@@ -144,6 +155,10 @@
     &__subtitle {
         color: $white;
         font-size: 36px;
+
+        @media (max-width: 576px) {
+            font-size: 24px;
+        }
     }
 
 }
@@ -153,9 +168,26 @@
     justify-content: center;
     margin-bottom: 40px;
 
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
     &__item {
+        @media (max-width: 768px) {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 576px)  {
+            width: 100%;
+        }
+        
+
         &:not(:last-child) {
             margin-right: 40px;
+
+            @media (max-width: 576px) {
+                margin-right: 0;
+            }
         }
     }
 
@@ -163,6 +195,13 @@
         color: #fff;
         font-size: 21px;
         border-radius: 5px;
+
+        @media (max-width: 576px) {
+            width: 100%;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 16px;
+        }
 
         &:hover {
             color: rgb(151, 151, 151);
@@ -192,6 +231,13 @@ button.mfp-close {
     right: 40px;
     opacity: 1;
 
+    @media (max-width: 576px) {
+        top: 10px;
+        right: 10px;
+        border: none;
+        background-color: rgb(179, 179, 179);
+    }
+
     &:hover {
         opacity: 0.7;
     }
@@ -204,5 +250,9 @@ button.mfp-close {
     &:active {
         top: 40px;
         box-shadow: inset 1px 1px 2px rgb(255, 255, 255);
+
+        @media (max-width: 576px) {
+            top: 10px;
+        }
     }
 }

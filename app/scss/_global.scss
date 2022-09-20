@@ -34,15 +34,27 @@ button {
 
 .section {
     padding: 100px 0;
+
+    @media (max-width: 576px), (max-width: 992px) and (orientation: landscape) {
+        padding: 70px 0;
+    }
 }
 
 .title {
     font-size: 48px;
     margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+        font-size: 40px;
+    }
 }
 
 .page {
     padding-top: 135px;
+
+    @media (max-width: 576px), (max-width: 992px) and (orientation: landscape) {
+        padding-top: 95px;
+    }
 }
 
 .int {

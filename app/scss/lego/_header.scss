@@ -7,9 +7,21 @@
     width: 100vw;
     height: 100vh;
 
+    @media (max-width: 992px) {
+        padding: 30px;
+    }
+
+    @media (max-width: 576px) {
+        height: calc(100vh - 73px);
+    }
+
     &__inner {
         height: calc(100vh - 338px);
         display: flex;
+
+        @media (max-width: 992px) {
+            height: calc(100vh - 198px);
+        }
     }
 
     &__logo {
@@ -30,6 +42,14 @@
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+
+    @media (max-width: 992px) {
+        padding: 25px 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 25px 15px;
+    }
 
     &:after {
         content: '';

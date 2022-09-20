@@ -3,19 +3,42 @@
     &__content {
         display: flex;
         justify-content: space-between;
+
+        @media (max-width: 768px) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__text {
         max-width: 40%;
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
 
         p:not(:last-child) {
             margin-bottom: 15px;
         }
     }
 
+    &__list {
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+            column-count: 2;
+        }
+
+        @media (max-width: 576px) {
+            column-count: 1;
+        }
+    }
+
     &__item {
         &:not(:last-child) {
             margin-bottom: 30px;
+
+            @media (max-width: 576px) {
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -27,6 +50,12 @@
         padding: 4px 8px;
         border-radius: 4px;
         transition: opacity 0.3s, outline-offset 0.5s;
+
+        @media (max-width: 576px) {
+            width: 100%;
+            font-size: 15px;
+            padding: 10px 0;
+        }
 
         &:hover {
             opacity: 0.5;
