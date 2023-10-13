@@ -4,12 +4,54 @@ const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
-const del = require('del');
+// const del = require('del');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const fileinclude = require('gulp-file-include');
+const flatten = require('gulp-flatten');
 
-//функции
+
+
+
+//НАСТРОЙКА БИЛДА - Start
+const gulp = require('gulp');
+const clean = require('gulp-clean');
+const path = require('path');
+const htmlreplace = require('gulp-html-replace');
+const replace = require('gulp-replace');
+//Очищаем папку build перед копированием файлов
+gulp.task('clean', () => {
+    return gulp.src('build', { read: false, allowEmpty: true })
+        .pipe(clean());
+});
+//Копируем папки images, css, js без изменений
+gulp.task('copy', () => {
+    return gulp.src(['app/images/**/*', 'app/css/**/*', 'app/js/**/*'], { base: 'app' })
+    .pipe(gulp.dest('build'));
+});
+gulp.task('html', () => {
+    return gulp.src('app/**/*.html')
+        .pipe(replace('.html"', '"')) // Заменяем .html в атрибутах href на ""
+        .pipe(htmlreplace({
+        'removeHtmlExtension': {
+            src: '',
+            tpl: '<link rel="stylesheet" href="%s.css"><script src="%s.js"></script>'
+        }
+    }))
+    .pipe(gulp.dest('build'));
+});
+//Запускаем задачи по очистке, копированию файлов и обработке html
+gulp.task('build', gulp.series('clean', gulp.parallel('copy', 'html')));
+// Задача по умолчанию
+gulp.task('default', gulp.series('build'));
+
+//НАСТРОЙКА БИЛДА - end
+
+
+
+
+
+
 function browsersync() {
     browserSync.init({
         server: {
@@ -19,14 +61,12 @@ function browsersync() {
     })
 }
 
-function styles () {
-    return src([
-        // 'node_modules/animate.css/animate.css',
-        'node_modules/magnific-popup/dist/magnific-popup.css',
-        'app/scss/style.scss'
-    ])
+function styles() {
+    return src('app/scss/*.scss')
     .pipe(scss({outputStyle: 'compressed'}))
-    .pipe(concat('style.min.css'))
+    .pipe(rename({
+        suffix: '.min',
+    }))
     .pipe(autoprefixer({
         overrideBrowserslist: ['last 10 version'],
         grid: true
@@ -47,36 +87,6 @@ function scripts() {
     .pipe(uglify())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream())
-}
-
-function images() {
-    return src('app/images/**/*.*')
-    .pipe(imagemin([
-        imagemin.gifsicle({interlaced: true}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-        imagemin.optipng({optimizationLevel: 5}),
-        imagemin.svgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
-            ]
-        })
-    ]))
-    .pipe(dest('dist/images'))
-}
-
-function build() {
-    return src([
-        'app/**/*.html',
-        'app/css/style.min.css',
-        'app/js/main.min.js',
-    ], {base: 'app'})
-    .pipe(dest('dist'))
-}
-
-function cleanDist() {
-    return del('dist')
-
 }
 
 function htmlInclude() {
@@ -101,11 +111,9 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.browsersync = browsersync;
 exports.watching = watching;
-exports.images = images;
 exports.htmlInclude = htmlInclude;
-exports.cleanDist = cleanDist;
 
-exports.build = series(cleanDist, images, build);
+// exports.build = series(cleanDist, images, build);
 exports.default = parallel(styles, scripts, browsersync, watching, htmlInclude);
 
 

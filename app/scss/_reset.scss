@@ -46,6 +46,8 @@ table {
 a {
     display: inline-block;
     text-decoration: none;
+	outline: transparent;
+    color: inherit;
 }
 img {
 	display: block;
@@ -59,4 +61,6 @@ button {
 	padding: 0;
 	border: none;
 	background-color: transparent;
+	outline: transparent;
+	cursor: pointer;
 }

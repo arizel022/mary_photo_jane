@@ -1,19 +1,1 @@
-@import 'reset';
-@import 'node_modules/slick-carousel/slick/slick.scss';
-$sut: #285bb9;
-$dark: #091314;
-$white: #ececec;
-
 @import 'global';
-@import 'lego/header';
-@import 'lego/promo';
-@import 'lego/menu';
-@import 'lego/gallery';
-@import 'lego/collection';
-@import 'lego/info';
-@import 'lego/footer';
-
-// @media (max-width: 576px) {
-// @media (max-width: 768px) {
-// @media (max-width: 992px) and (orientation: landscape) {
-// @media (max-width: 576px), (max-width: 992px) and (orientation: landscape)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,41 +8,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/index.min.css">
 </head>
 
 <body class="body hidden">
-    <header class="header">
-        <nav class="menu">
-            <button class="menu__btn int" type="button">
-                <span class="menu__line"></span>
-            </button>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <a href="index.html" class="menu__link int">Home</a>
-                </li>
-                <li class="menu__item">
-                    <a href="gallery.html" class="menu__link int">Gallery</a>
-                </li>
-                <li class="menu__item">
-                    <a href="info.html" class="menu__link int">Info</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header__inner">
-            <img class="header__logo" src="images/logo.svg" alt="логотип" width="600px">
-        </div>
+    <div class="wrapper">
 
-        <button class="view-btn" type="button">
-            <svg class="view-btn__icon" width="100" height="100">
-                <use xlink:href="images/images.svg#icon-eye"></use>
-            </svg>
-            <svg class="view-btn__icon view-btn__icon--glow" width="100" height="100">
-                <use xlink:href="images/images.svg#icon-eye"></use>
-            </svg>
-        </button>
-    </header>
-    <div class="promo">
+
+        <header class="header">
+
+            <nav class="menu">
+                <button class="menu__btn int" type="button">
+                    <span class="menu__line"></span>
+                </button>
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a href="index.html" class="menu__link int">Home</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="gallery.html" class="menu__link int">Gallery</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="info.html" class="menu__link int">Info</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__inner">
+                <img class="header__logo" src="images/logo.svg" alt="logo" width="600">
+            </div>
+
+            <button class="view-btn" type="button">
+                <svg class="view-btn__icon" width="100" height="100">
+                    <use xlink:href="images/images.svg#icon-eye"></use>
+                </svg>
+                <svg class="view-btn__icon view-btn__icon--glow" width="100" height="100">
+                    <use xlink:href="images/images.svg#icon-eye"></use>
+                </svg>
+            </button>
+        </header>
+        <div class="promo">
 
             <div class="promo__item">
                 <img class="promo__img" src="./images/1.jpg" alt="" width="100vw" height="100vh">
@@ -62,15 +67,15 @@
             <div class="promo__item">
                 <img class="promo__img" src="./images/6.jpg" alt="" width="100vw" height="100vh">
             </div>
-        </ul>
+            </ul>
+
+        </div>
+
+
+        <div class="dots"></div>
 
     </div>
-
-
-    <div class="dots"></div>
-
-
-<script src="js/main.min.js"></script>
+    <script src="js/main.min.js"></script>
 
 </body>
 

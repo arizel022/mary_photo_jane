@@ -1,3 +1,10 @@
+@import 'reset';
+
+$sut: #285bb9;
+$dark: #181818;
+$white: #ececec;
+
+
 body {
     min-height: 100vh;
     display: flex; 
@@ -14,16 +21,6 @@ body {
     &.hidden {
         overflow: hidden;
     }
-}
-
-a {
-    outline: transparent;
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
-    outline: transparent;
 }
 
 .container {
@@ -87,3 +84,185 @@ button {
     }
 }
 
+
+
+
+
+
+.header {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    padding: 70px;
+    width: 100vw;
+    height: 100vh;
+
+    @media (max-width: 992px) {
+        padding: 30px;
+    }
+
+    @media (max-width: 576px) {
+        height: calc(100vh - 73px);
+    }
+
+    &__inner {
+        height: calc(100vh - 338px);
+        display: flex;
+
+        @media (max-width: 992px) {
+            height: calc(100vh - 198px);
+        }
+    }
+
+    &__logo {
+        margin: auto;
+
+        &.off {
+            display: none;
+        }
+    }
+}
+
+.top-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+
+    @media (max-width: 992px) {
+        padding: 25px 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 25px 15px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        backdrop-filter: blur(12px);
+    }
+
+}
+
+
+.menu {
+    position: relative;
+
+    &__btn {
+        width: 55px;
+        height: 55px;
+        padding: 10px;
+        position: relative;
+        border-radius: 5px;
+
+        @media (max-width: 992px) {
+            width: 45px;
+            height: 45px;
+        }
+
+        &.off {
+            display: none;
+        }
+
+        &.active {
+            .menu__line {
+                background-color: transparent;
+
+                &:before {
+                    top: 27px;
+                    transform: rotate(45deg);
+
+                    @media (max-width: 992px) {
+                        top: 22px;
+                    }
+                }
+
+                &:after {
+                    bottom: 27px;
+                    transform: rotate(-45deg);
+
+                    @media (max-width: 992px) {
+                        bottom: 22px;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    &__line {
+        display: block;
+        width: 35px;
+        height: 1px;
+        border-radius: 1px;
+        background-color: #fff;
+
+        @media (max-width: 992px)  {
+            width: 25px;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            border-radius: inherit;
+            width: inherit;
+            height: inherit;
+            background-color: #fff;
+            transition: all 0.4s;
+        }
+
+        &:before {
+            top: 14px;
+        }
+
+        &:after {
+            bottom: 14px;
+        }
+    }
+
+    &__list {
+        position: absolute;
+        top: 60px;
+        background-color: rgba(48, 48, 48, 0.5);
+        border-radius: 5px;
+        backdrop-filter: blur(12px);
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__link {
+        display: block;
+        font-size: 18px;
+        padding: 15px 50px;
+        border-radius: 5px;
+        border-bottom: 1px solid $sut;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: rgba(48, 48, 48, 0.8);
+        }
+    }
+}
+
+
+
+@import 'lego/gallery';
+@import 'lego/collection';
+@import 'lego/info';
+@import 'lego/footer';
