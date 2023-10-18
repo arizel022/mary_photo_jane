@@ -3,16 +3,16 @@
 $(function () {
 	$('.menu__list').hide();
 	//-----------------------------------------работа кнопки меню
-	$('.menu__btn').click(function () {
+	$('.menu-btn').click(function () {
 		$(this).toggleClass('active');
-		$('.menu__list').slideToggle();
+		$('.header').toggleClass('show');
 	});
 
 	//---------------------slick
-	$('.promo').slick({
+	$('.promo__content').slick({
 		dots: true,
 		infinite: true,
-		vertical: true,
+		// vertical: true,
 		arrows: false,
 		appendDots: $('.dots'),
 		swipeToSlide: true,
@@ -30,13 +30,24 @@ $(function () {
 		]
 	});
 	//-----------------------------------------работа eye
-	$('.view-btn').click(function () {
+	$('.promo__view-btn').click(function () {
 		$(this).toggleClass('active');
 		$('.menu__btn').toggleClass('off');
-		$('.header__logo').toggleClass('off');
+		$('.hero__logo-img').toggleClass('off');
 		$('.dots').toggleClass('off');
 		$('.promo__item').toggleClass('off');
 	});
+	//-----------------------------------------dropdown in nav
+	$('.header__link--dots').click(function () {
+		$(this).toggleClass('active');
+		$('.header__dropdown-list').toggleClass('show');
+	});
+
+
+
+	
+
+
 
 	var containerEl1 = document.querySelector('[data-ref="container"]');
 	var containerEl2 = document.querySelector('[data-ref="container2"]');
